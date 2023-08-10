@@ -10,8 +10,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <windows.h>
 
-void cabecalho(), opcoes_princiais(), opcoes_secundarias();
+void cabecalho(), opcoes_princiais(), opcoes_secundarias(), encerramento();
 
 int main(){
     int opcao;
@@ -26,7 +27,15 @@ int main(){
         if (opcao == 8)
             opcoes_princiais();
     } while (opcao < 0 || opcao > 8 || opcao == 0 || opcao == 8);
-
+    switch(opcao){
+        case 1: break;
+        case 2: break;
+        case 3: break;
+        case 4: break;
+        case 5: break;
+        case 6: system ("cls"); break;
+        case 7: encerramento(); break;
+    }
     system ("pause");
     return 0;
 }
@@ -59,3 +68,13 @@ void opcoes_secundarias(){
     printf("| [8] Menu anterior                   |\n");
     printf("---------------------------------------\n");
 }
+
+void encerramento(){
+    int i;
+    printf("\nEncerrando Task List");
+        for (i=0; i<3; i++){
+            Sleep(600);
+            printf(".");
+        }
+    printf("\nTask List encerrado!\n\n");
+    }
