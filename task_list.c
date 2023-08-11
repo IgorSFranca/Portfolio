@@ -12,10 +12,24 @@
 #include <ctype.h>
 #include <windows.h>
 
-void cabecalho(), opcoes_princiais(), opcoes_secundarias(), encerramento();
+void cabecalho(), opcoes_princiais(), opcoes_secundarias(), encerramento(), visualizar_tarefas(), criar_tarefa();
+
+struct tarefa {
+    int indice;
+    char descricao[30]; //descrição da tarefa
+    char situacao; //situação Pendente (P) e Concluída (C)
+    char data[8]; //Data no formato: dd/mm/aa
+    char hora[5]; //Hora no formato: hh:mm
+};
+
+typedef struct tarefa tarefa;
 
 int main(){
     int opcao;
+    tarefa tarefa01;
+
+    printf("Informe a descricao: ");
+    fgets(tarefa01.descricao, 30, stdin);
 
     cabecalho();
     opcoes_princiais();
@@ -72,9 +86,14 @@ void opcoes_secundarias(){
 void encerramento(){
     int i;
     printf("\nEncerrando Task List");
+        Sleep(600);
         for (i=0; i<3; i++){
-            Sleep(600);
             printf(".");
+            Sleep(600);
         }
     printf("\nTask List encerrado!\n\n");
     }
+
+void visualizar_tarefas(){}
+
+void criar_tarefa(){}
