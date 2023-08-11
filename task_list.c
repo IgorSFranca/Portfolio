@@ -12,8 +12,15 @@
 #include <ctype.h>
 #include <windows.h>
 
-void cabecalho(), opcoes_princiais(), opcoes_secundarias(), encerramento(), visualizar_tarefas(), criar_tarefa();
+//Protótipos
+void cabecalho();
+void opcoes_princiais();
+void opcoes_secundarias();
+void encerramento();
+void visualizar_tarefas();
+void criar_tarefa();
 
+//Estruturas
 struct tarefa {
     int indice;
     char descricao[30]; //descrição da tarefa
@@ -22,13 +29,12 @@ struct tarefa {
     char hora[5]; //Hora no formato: hh:mm
 };
 
-typedef struct tarefa tarefa;
 
 int main(){
     int opcao;
-    tarefa tarefa01;
+    struct tarefa tarefa01;
 
-    printf("Informe a descricao: ");
+    printf("Descricao: ");
     fgets(tarefa01.descricao, 30, stdin);
 
     cabecalho();
@@ -54,6 +60,7 @@ int main(){
     return 0;
 }
 
+//Protótipos e funções
 void cabecalho(){
     printf("---------------------------------------\n");
     printf("|                 ~#~                 |\n");
@@ -97,3 +104,11 @@ void encerramento(){
 void visualizar_tarefas(){}
 
 void criar_tarefa(){}
+
+
+
+
+
+
+
+
