@@ -1,7 +1,7 @@
 /*
  * Nome do arquivo: task_list.c
- * Descrição: Lista de Tarefas: Uma aplicação de linha de comando (CLI) para gerenciar uma lista de tarefas. 
- * Os usuários podem adicionar, remover e listar tarefas.
+ * Descrição: Lista de Tarefas: Uma aplicação de linha de comando para gerenciar uma lista de tarefas. 
+ * Os usuários podem adicionar, remover, visualizar, editar e concluir tarefas.
  * Autor: Igor França
  * Data de criação: 10 de agosto de 2023
  */

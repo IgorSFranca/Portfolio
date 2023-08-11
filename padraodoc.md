@@ -6,10 +6,7 @@ No início de cada arquivo fonte (.c ou .h), inclua um comentário que descreva 
  * Nome do arquivo: meu_programa.c
  * Descrição: Programa para realizar uma determinada tarefa.
  * Autor: Seu Nome
- * Data: 
-        Criação: 22 de julho de 2023
-        Modularização: 
-
+ * Data de criação: 22 de julho de 2023
  */
 
 ----------------------------------------------------------------------------------------------------------
