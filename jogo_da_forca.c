@@ -22,7 +22,6 @@ void animacao(int);
 void musica_abertura();
 void musica_vitoria();
 void musica_perdedor();
-void criar_palavra(char palavra_misteriosa[]);
 void imprimir_certas(char letras_certas[], int);
 void imprimir_tentativas(char letras_tentadas[], int);
 void verifica_fim(int, int);
@@ -319,18 +318,6 @@ void musica_perdedor(){
     Beep(f1, d1);
     Beep(f2, d2);
     Beep(f3, d3);
-}
-
-void criar_palavra(char palavra_misteriosa[]){
-    printf("============================\n");
-    printf("           ~~*~~            \n");
-    printf("       ~# OPTIONS #~        \n");
-    printf("           ~~*~~            \n");
-    printf("                            \n");
-    printf(" INFORMAR A PALAVRA SEGREDO \n");
-    printf("============================\n");
-    printf("Palavra: ");
-    scanf(" %s", palavra_misteriosa);
 }
 
 void imprimir_certas(char letras_certas[], int max)
