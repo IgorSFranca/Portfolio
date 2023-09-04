@@ -400,4 +400,5 @@ void verifica_fim(int vitoria, int max){
 void imprime_tentativas_restantes(int chances)
 {
     printf(" Voce tem %i tentativas\n", chances);
+    printf(" Dica: É um objeto\n");
 }
