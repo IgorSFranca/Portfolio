@@ -12,6 +12,7 @@
 void cabecalho();
 void menu_inicial();
 void menu_interno();
+void seleciona_opcao(int*);
 
 struct tipo_tarefa{
     char tarefa[50];
@@ -22,10 +23,11 @@ typedef struct tipo_tarefa tipo_tarefa;
 
 int main (){
     tipo_tarefa tarefas[100];
+    int opcao;
 
     cabecalho();
     menu_inicial();
-    menu_interno();
+    seleciona_opcao(&opcao);
     system ("pause");
     return 0;
 }
@@ -59,4 +61,9 @@ void menu_interno(){
     puts(" [9] Voltar");
     puts("");
     puts("=====================================================");
+}
+
+void seleciona_opcao(int *opcao){
+    printf("Informe a opcao: ");
+    scanf("%i", *opcao);
 }
