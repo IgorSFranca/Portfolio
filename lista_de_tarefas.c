@@ -31,11 +31,21 @@ int main (){
     menu_inicial();
     opcao = seleciona_opcao(opcao);
     switch (opcao){
-        case 1: 
+        case 1: //Visualizar tarefas
             visualizar_tarefas(tarefas, &contador_tarefas);
+
+            //Novas opções de manipulação
+            if (contador_tarefas == 0){
+                break;
+            }
+            else {
+                menu_interno();
+                break;
+            }
+        case 2: //Inserir novas tarefas
             break;
-        case 2: break;
-        case 0: break;
+        case 0: //Encerrar programa 
+            break;
     }
     system ("pause");
     return 0;
@@ -61,6 +71,7 @@ void menu_inicial(){
 }
 
 void menu_interno(){
+    puts("=====================================================");
     puts("");
     puts(" [1] Inserir nova");
     puts(" [2] Editar");
@@ -88,8 +99,8 @@ void visualizar_tarefas(tipo_tarefa tarefas[100], int *contador_tarefas){
     else{
         for (i=0; i<*contador_tarefas; i++){
             printf("Tarefa %i:\n", i);
-            printf("Descricao: %s", tarefas[i].descricao);
-            printf("Situacao: %i", tarefas[i].situacao);
+            printf("Descricao: %s\n", tarefas[i].descricao);
+            printf("Situacao: %i\n", tarefas[i].situacao);
         }
     }
 }
