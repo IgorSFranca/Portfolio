@@ -10,8 +10,8 @@
 #include <string.h>
 
 struct tipo_tarefa{
-    char descricao[50];
-    int situacao;
+    char descricao[50]; //Descrição geral da tarefa
+    int situacao; //[1] Pendente; [2] Concluído
 };
 
 typedef struct tipo_tarefa tipo_tarefa;
@@ -20,6 +20,7 @@ void cabecalho();
 void menu_inicial();
 void menu_interno();
 void visualizar_tarefas (tipo_tarefa tarefas[100], int*);
+void incluir_tarefa(tipo_tarefa tarefas[100], int*);
 int seleciona_opcao(int);
 
 int main (){
@@ -27,26 +28,46 @@ int main (){
     int opcao;
     int contador_tarefas = 0;
 
-    cabecalho();
-    menu_inicial();
-    opcao = seleciona_opcao(opcao);
-    switch (opcao){
-        case 1: //Visualizar tarefas
-            visualizar_tarefas(tarefas, &contador_tarefas);
+    do{
+        system ("cls");
+        cabecalho();
+        menu_inicial();
+        opcao = seleciona_opcao(opcao);
+        switch (opcao){
+            case 1: //Visualizar tarefas
+                visualizar_tarefas(tarefas, &contador_tarefas);
 
-            //Novas opções de manipulação
-            if (contador_tarefas == 0){
+                //Novas opções de manipulação
+                if (contador_tarefas == 0){
+                    break;
+                }
+                else {//Incluir, editar, concluir, excluir, atualizar listagem
+                    menu_interno();
+                    opcao = seleciona_opcao(opcao);
+                    switch (opcao){
+                        case 1: //incluir tarefa
+                            incluir_tarefa(tarefas, &contador_tarefas);
+                            break;
+                        case 2: //Editar tarefa
+                            break;
+                        case 3: //Concluir tarefa
+                            break;
+                        case 4: //Excluir tarefa
+                            break;
+                        case 5: //Atualizar listagem de tarefas
+                            break;
+                        case 6: //Voltar para o menu inicial
+                            break;
+                    }
+                    break;
+                }
+            case 2: //Inserir novas tarefas
+                incluir_tarefa(tarefas, &contador_tarefas);
                 break;
-            }
-            else {
-                menu_interno();
+            case 0: //Encerrar programa 
                 break;
-            }
-        case 2: //Inserir novas tarefas
-            break;
-        case 0: //Encerrar programa 
-            break;
-    }
+        }
+    } while (opcao != 0);
     system ("pause");
     return 0;
 }
@@ -103,4 +124,14 @@ void visualizar_tarefas(tipo_tarefa tarefas[100], int *contador_tarefas){
             printf("Situacao: %i\n", tarefas[i].situacao);
         }
     }
+}
+
+void incluir_tarefa(tipo_tarefa tarefas[100], int *contador_tarefas){
+    system("cls");
+    cabecalho();
+    printf("VAMOS INCLUIR UMA NOVA TAREFA\n\n");
+    printf("Informe a descricao: ");
+    scanf("%s", &tarefas[*contador_tarefas+1].descricao);
+    fflush;
+    tarefas[*contador_tarefas+1].situacao = 1;
 }
