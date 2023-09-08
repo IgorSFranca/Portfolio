@@ -9,15 +9,15 @@
 #include <stdlib.h>
 #include <string.h>
 
-struct tarefas{
+struct tipo_tarefa{
     char tarefa[50];
     int situacao;
 };
 
-typedef struct tarefas tarefas;
+typedef struct tipo_tarefa tipo_tarefa;
 
 int main (){
+    tipo_tarefa tarefas[100];
 
-    
     return 0;
 }
