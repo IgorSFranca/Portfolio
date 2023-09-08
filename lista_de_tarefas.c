@@ -9,25 +9,34 @@
 #include <stdlib.h>
 #include <string.h>
 
-void cabecalho();
-void menu_inicial();
-void menu_interno();
-void seleciona_opcao(int*);
-
 struct tipo_tarefa{
-    char tarefa[50];
+    char descricao[50];
     int situacao;
 };
 
 typedef struct tipo_tarefa tipo_tarefa;
 
+void cabecalho();
+void menu_inicial();
+void menu_interno();
+void visualizar_tarefas (tipo_tarefa tarefas[100], int*);
+int seleciona_opcao(int);
+
 int main (){
     tipo_tarefa tarefas[100];
     int opcao;
+    int contador_tarefas = 0;
 
     cabecalho();
     menu_inicial();
-    seleciona_opcao(&opcao);
+    opcao = seleciona_opcao(opcao);
+    switch (opcao){
+        case 1: 
+            visualizar_tarefas(tarefas, &contador_tarefas);
+            break;
+        case 2: break;
+        case 0: break;
+    }
     system ("pause");
     return 0;
 }
@@ -63,7 +72,24 @@ void menu_interno(){
     puts("=====================================================");
 }
 
-void seleciona_opcao(int *opcao){
+int seleciona_opcao(int opcao){
     printf("Informe a opcao: ");
-    scanf("%i", *opcao);
+    scanf("%i", &opcao);
+    return opcao;
+}
+
+void visualizar_tarefas(tipo_tarefa tarefas[100], int *contador_tarefas){
+    int i; 
+    if (*contador_tarefas == 0){
+        printf("Nao ha tarefas armazenadas.\n");
+        system("pause");
+        return;
+    }
+    else{
+        for (i=0; i<*contador_tarefas; i++){
+            printf("Tarefa %i:\n", i);
+            printf("Descricao: %s", tarefas[i].descricao);
+            printf("Situacao: %i", tarefas[i].situacao);
+        }
+    }
 }
