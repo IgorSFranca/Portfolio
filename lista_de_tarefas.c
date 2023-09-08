@@ -1,0 +1,62 @@
+/*
+ * Nome do arquivo: lista_de_tarefas.c
+ * Descrição: Aplicação de lista de tarefas, onde o usuário consegue inserir, excluir, editar, visualização e concluir tarefas.
+ * Autor: Igor França
+ * Data de criação: 08 de setembro de 2023. 
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+void cabecalho();
+void menu_inicial();
+void menu_interno();
+
+struct tipo_tarefa{
+    char tarefa[50];
+    int situacao;
+};
+
+typedef struct tipo_tarefa tipo_tarefa;
+
+int main (){
+    tipo_tarefa tarefas[100];
+
+    cabecalho();
+    menu_inicial();
+    menu_interno();
+    system ("pause");
+    return 0;
+}
+
+void cabecalho(){
+    puts("=====================================================");
+    puts("");
+    puts("                       ~ # ~");
+    puts("               ~ LISTA DE TAREFAS ~");
+    puts("                       ~ # ~");
+    puts("");
+    puts("=====================================================");
+}
+
+void menu_inicial(){
+    puts("");
+    puts(" [1] Visualizar tarefas");
+    puts(" [2] Inserir");
+    puts(" [0] Encerrar programa");
+    puts("");
+    puts("=====================================================");
+}
+
+void menu_interno(){
+    puts("");
+    puts(" [1] Inserir nova");
+    puts(" [2] Editar");
+    puts(" [3] Concluir");
+    puts(" [4] Excluir");
+    puts(" [5] Atualizar listagem");
+    puts(" [9] Voltar");
+    puts("");
+    puts("=====================================================");
+}
