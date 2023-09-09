@@ -56,6 +56,8 @@ int main (){
                         case 4: //Excluir tarefa
                             break;
                         case 5: //Atualizar listagem de tarefas
+                            system ("cls");
+                            cabecalho();
                             visualizar_tarefas(tarefas, &contador_tarefas);
                             break;
                         case 6: //Voltar para o menu inicial
@@ -146,5 +148,23 @@ void incluir_tarefa(tipo_tarefa tarefas[100], int *contador_tarefas){
 }
 
 void editar_tarefa(tipo_tarefa tarefas[100], int *contador_tarefas){
-    
+    int i, verificacao = 0, indice;
+    printf("Informe o indice da tarefa que deseja alterar: ");
+    scanf("%i", &indice);
+    printf("\n");
+    for (i=1; i<=*contador_tarefas; i++){
+        if (i == indice)
+            verificacao = 1;
+    }
+    if (verificacao == 1){
+        printf("Descricao atual: %s", tarefas[indice].descricao);
+        printf("Informe a nova descricao: ");
+        fflush (stdin);
+        fgets(tarefas[indice].descricao, 50, stdin);
+        fflush (stdin);
+    }
+    else{
+        printf("Tarefa nao encontrada!\n");
+        system("pause");
+    }
 }
