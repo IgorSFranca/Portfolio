@@ -1,14 +1,52 @@
-# Jogo da Forca // Hangman Game
+## Jogo da Forca
 
- O jogo da forca é uma brincadeira infanto-juvenil, jogado entre duas pessoas, onde o primeiro player determina uma palavra misteriosa e o segundo player precisa advinhá-la. 
+### Descrição
 
-<h3> Como jogar </h3>
-As tentativas de advinhação são realizadas letra a letra, onde, a cada letra errada, o desenho de um boneco palito é feito pendurado em uma forca.
-<br> Quando o player que está tentando advinhar a palavra cita a letra, e existe a letra na palavra, o adversário precisa preencher as lacunas com as letras correspondentes, dando visibilidade à palavra incompleta e, intuitivamente, fornecendo dicas de qual palavra está escondida. 
-<br> O jogo termina quando o jogador acerta a palavra antes de se completar todo o boneco palito, ou quando todas as tentativas são esgotadas.
+O Jogo da Forca é um jogo de palavras em que o jogador tenta adivinhar uma palavra oculta. A cada tentativa errada, o jogador perde um ponto de vida.
 
-<h3> Funcionamento do Jogo no programa</h3>
-No menu inicial, o usuário tem a possibilidade de iniciar o jogo ou encerrar o programa. 
-<br>Após escolher iniciar o jogo, será apresentado o layout para recepção da letra da palavra. 
-<br>Quando a letra digitada for correta a linha "Palavra" será preenchida as lacunas com a letra informada e será inserida na linha "Tentativas". Caso a letra informada esteja incorreta, o boneco palito executará uma animação, inserindo uma parte de seu corpo e balançando evidenciando uma alteração. A letra errada também será incluída na linha "Tentativas".
-<br>Quando o jogo finalizar será apresentada uma mensagem e será tocada uma breve melodia, de vitória ou derrota, dependendo do caso. 
+### Funcionalidades
+
+O jogo possui as seguintes funcionalidades:
+
+1. **Menu Inicial**
+   - O jogador pode escolher iniciar o jogo ou sair.
+
+2. **Animação**
+   - Mostra uma animação conforme o número de chances restantes.
+
+3. **Música de Abertura**
+   - Toca uma música de abertura quando o jogo é iniciado.
+
+4. **Verificação da Letra**
+   - Verifica se a letra inserida pelo jogador está na palavra secreta.
+
+5. **Imprimir Letras Certas**
+   - Exibe as letras corretas já adivinhadas.
+
+6. **Imprimir Tentativas**
+   - Exibe as letras já tentadas pelo jogador.
+
+7. **Verificação do Fim do Jogo**
+   - Verifica se o jogador ganhou ou perdeu o jogo.
+
+8. **Imprimir Tentativas Restantes**
+   - Informa quantas tentativas restantes o jogador possui.
+
+### Como Jogar
+
+1. O jogador escolhe iniciar o jogo no menu inicial.
+2. O jogo exibe uma animação e a quantidade de tentativas restantes.
+3. O jogador insere uma letra.
+4. O jogo verifica se a letra está na palavra secreta.
+5. O jogo informa se o jogador acertou ou errou a letra.
+6. O jogo continua até o jogador adivinhar a palavra ou perder todas as tentativas.
+
+### Contribuição
+
+Contribuições são bem-vindas! Sinta-se à vontade para propor melhorias, corrigir bugs ou adicionar novas funcionalidades. Para contribuir, siga os passos:
+
+1. Faça um fork do repositório.
+2. Crie uma nova branch com o nome da sua feature ou correção.
+3. Faça as alterações.
+4. Faça o commit das alterações com uma mensagem descritiva.
+5. Faça um pull request para a branch principal.
