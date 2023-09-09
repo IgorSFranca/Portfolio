@@ -21,6 +21,7 @@ void menu_inicial();
 void menu_interno();
 void visualizar_tarefas (tipo_tarefa tarefas[100], int*);
 void incluir_tarefa(tipo_tarefa tarefas[100], int*);
+void editar_tarefa(tipo_tarefa tarefas[100], int*);
 int seleciona_opcao(int);
 
 int main (){
@@ -36,7 +37,6 @@ int main (){
         switch (opcao){
             case 1: //Visualizar tarefas
                 visualizar_tarefas(tarefas, &contador_tarefas);
-
                 //Novas opções de manipulação
                 if (contador_tarefas == 0){
                     break;
@@ -49,12 +49,14 @@ int main (){
                             incluir_tarefa(tarefas, &contador_tarefas);
                             break;
                         case 2: //Editar tarefa
+                            editar_tarefa(tarefas, &contador_tarefas);
                             break;
                         case 3: //Concluir tarefa
                             break;
                         case 4: //Excluir tarefa
                             break;
                         case 5: //Atualizar listagem de tarefas
+                            visualizar_tarefas(tarefas, &contador_tarefas);
                             break;
                         case 6: //Voltar para o menu inicial
                             break;
@@ -119,10 +121,15 @@ void visualizar_tarefas(tipo_tarefa tarefas[100], int *contador_tarefas){
     }
     else{
         for (i=0; i<*contador_tarefas; i++){
-            printf("Tarefa %i:\n", i);
-            printf("Descricao: %s\n", tarefas[i].descricao);
-            printf("Situacao: %i\n", tarefas[i].situacao);
+            printf("Tarefa %i:\n", i+1);
+            printf("Descricao: %s", tarefas[i+1].descricao);
+            printf("Situacao: %i", tarefas[i+1].situacao);
+            if (tarefas[i+1].situacao == 1)
+                printf(": Pendente\n\n");
+            else
+                printf(": Concluido\n\n");
         }
+        system ("pause");
     }
 }
 
@@ -131,7 +138,13 @@ void incluir_tarefa(tipo_tarefa tarefas[100], int *contador_tarefas){
     cabecalho();
     printf("VAMOS INCLUIR UMA NOVA TAREFA\n\n");
     printf("Informe a descricao: ");
-    scanf("%s", &tarefas[*contador_tarefas+1].descricao);
-    fflush;
+    fflush (stdin);
+    fgets(tarefas[*contador_tarefas+1].descricao, 50, stdin);
+    fflush (stdin);
     tarefas[*contador_tarefas+1].situacao = 1;
+    *contador_tarefas = *contador_tarefas + 1;
+}
+
+void editar_tarefa(tipo_tarefa tarefas[100], int *contador_tarefas){
+    
 }
