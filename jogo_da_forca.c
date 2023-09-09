@@ -32,7 +32,7 @@ void imprime_tentativas_restantes(int);
 int main()
 {
     // declaração de variáveis
-    char palavra_misteriosa[100] = {"camiseta"};
+    char palavra_misteriosa[10] = {"camiseta"};
     char letra[1];
     char letras_certas[strlen(palavra_misteriosa)];
     char letras_tentadas[30];
