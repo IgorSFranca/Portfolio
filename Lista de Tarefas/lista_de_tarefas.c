@@ -61,11 +61,6 @@ int main (){
                             break;
                         case 4: //Excluir tarefa
                             break;
-                        case 5: //Atualizar listagem de tarefas
-                            system ("cls");
-                            cabecalho();
-                            visualizar_tarefas(tarefas, &contador_tarefas);
-                            break;
                         case 6: //Voltar para o menu inicial
                             break;
                     }
@@ -108,7 +103,6 @@ void menu_interno(){
     puts(" [2] Editar");
     puts(" [3] Concluir");
     puts(" [4] Excluir");
-    puts(" [5] Atualizar listagem");
     puts(" [9] Voltar");
     puts("");
     puts("=====================================================");
