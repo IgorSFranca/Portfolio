@@ -58,7 +58,10 @@ int main (){
                             break;
                         case 4: //Excluir tarefa
                             break;
-                        case 6: //Voltar para o menu inicial
+                        case 9: //Voltar para o menu inicial
+                            break;
+                        default:
+                            printf("Opcao nao encontrada!\n");
                             break;
                     }
                     break;
