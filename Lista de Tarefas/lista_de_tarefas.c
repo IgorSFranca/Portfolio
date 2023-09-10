@@ -159,24 +159,31 @@ void incluir_tarefa(tipo_tarefa tarefas[100], int *contador_tarefas){
 
 void editar_tarefa(tipo_tarefa tarefas[100], int *contador_tarefas){
     int i, verificacao = 0, indice;
-    printf("Informe o indice da tarefa que deseja alterar: ");
-    scanf("%i", &indice);
-    printf("\n");
-    for (i=1; i<=*contador_tarefas; i++){
-        if (i == indice)
-            verificacao = 1;
-    }
-    if (verificacao == 1){
-        printf("Descricao atual: %s", tarefas[indice].descricao);
-        printf("Informe a nova descricao: ");
-        fflush (stdin);
-        fgets(tarefas[indice].descricao, 50, stdin);
-        fflush (stdin);
-    }
-    else{
-        printf("Tarefa nao encontrada!\n");
-        system("pause");
-    }
+    char resp = 's';
+    do{
+        printf("Informe o indice da tarefa que deseja alterar: ");
+        scanf("%i", &indice);
+        printf("\n");
+        for (i=1; i<=*contador_tarefas; i++){
+            if (i == indice)
+                verificacao = 1;
+        }
+        if (verificacao == 1){
+            printf("Descricao atual: %s", tarefas[indice].descricao);
+            printf("Informe a nova descricao: ");
+            fflush (stdin);
+            fgets(tarefas[indice].descricao, 50, stdin);
+            fflush (stdin);
+        }
+        else{
+            printf("Tarefa nao encontrada!\n");
+            system("pause");
+        }
+        printf("\n");
+        printf("Confirma a edicao da tarefa? [s/n] ");
+        scanf("%c", &resp);
+        resp = tolower(resp);
+    } while (resp != 's');
 }
 
 void concluir_tarefa(tipo_tarefa tarefas[100], int *contador_tarefas){
