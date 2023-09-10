@@ -188,26 +188,33 @@ void editar_tarefa(tipo_tarefa tarefas[100], int *contador_tarefas){
 
 void concluir_tarefa(tipo_tarefa tarefas[100], int *contador_tarefas){
     int i, verificacao = 0, indice;
-    printf("Informe o indice da tarefa que deseja concluir: ");
-    scanf("%i", &indice);
-    printf("\n");
-    for (i=0; i<=*contador_tarefas; i++){
-        if (i == indice)
-            verificacao = 1;
-    }
-    if (verificacao == 1){
-        if (tarefas[indice].situacao == 1){
-            printf("Situacao atual: Pendente\n");
-            printf("Situacao alterada para: Concluido.\n");
-            tarefas[indice].situacao = 2;
-            system ("pause");
+    char resp = 's';
+    do{
+        printf("Informe o indice da tarefa que deseja concluir: ");
+        scanf("%i", &indice);
+        printf("\n");
+        for (i=0; i<=*contador_tarefas; i++){
+            if (i == indice)
+                verificacao = 1;
+        }
+        if (verificacao == 1){
+            if (tarefas[indice].situacao == 1){
+                printf("Situacao atual: Pendente\n");
+                printf("Situacao alterada para: Concluido.\n");
+                tarefas[indice].situacao = 2;
+                system ("pause");
+            }
+            else{
+                printf("A tarefa ja esta marcada como concluida.\n");
+            }
         }
         else{
-            printf("A tarefa ja esta marcada como concluida.\n");
+            printf("Tarefa nao encontrada!\n");
+            system ("pause");
         }
-    }
-    else{
-        printf("Tarefa nao encontrada!\n");
-        system ("pause");
-    }
+        printf("\n");
+        printf("Confirma a conclusao da tarefa? [s/n] ");
+        scanf("%c", &resp);
+        resp = tolower(resp);
+    } while (resp != 's');
 }
