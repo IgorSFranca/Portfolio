@@ -3,10 +3,6 @@
  * Descrição: Aplicação de lista de tarefas, onde o usuário consegue inserir, excluir, editar, visualização e concluir tarefas.
  * Autor: Igor França
  * Data de criação: 08 de setembro de 2023. 
- * 
- * Ajustes:
- * 01. Fazer com que o programa não receba letras ao invés de números no índices. 
- * 02. Melhorar o layout.
  */
 
 #include <stdio.h>
@@ -155,9 +151,9 @@ void incluir_tarefa(tipo_tarefa tarefas[100], int *contador_tarefas){
         resp = tolower(resp);
     } while (resp != 's');
     if (resp == 's'){
-        *contador_tarefas = *contador_tarefas + 1;
         strcpy(tarefas[*contador_tarefas+1].descricao, descricao);
         tarefas[*contador_tarefas+1].situacao = 1;
+        *contador_tarefas = *contador_tarefas + 1;
     }
 }
 
