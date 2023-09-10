@@ -3,6 +3,10 @@
  * Descrição: Aplicação de lista de tarefas, onde o usuário consegue inserir, excluir, editar, visualização e concluir tarefas.
  * Autor: Igor França
  * Data de criação: 08 de setembro de 2023. 
+ * 
+ * Ajustes:
+ * 01. Fazer com que o programa não receba letras ao invés de números no índices. 
+ * 02. Melhorar o layout.
  */
 
 #include <stdio.h>
@@ -22,6 +26,7 @@ void menu_interno();
 void visualizar_tarefas (tipo_tarefa tarefas[100], int*);
 void incluir_tarefa(tipo_tarefa tarefas[100], int*);
 void editar_tarefa(tipo_tarefa tarefas[100], int*);
+void concluir_tarefa(tipo_tarefa tarefas[100], int*);
 int seleciona_opcao(int);
 
 int main (){
@@ -52,6 +57,7 @@ int main (){
                             editar_tarefa(tarefas, &contador_tarefas);
                             break;
                         case 3: //Concluir tarefa
+                            concluir_tarefa(tarefas, &contador_tarefas);
                             break;
                         case 4: //Excluir tarefa
                             break;
@@ -166,5 +172,31 @@ void editar_tarefa(tipo_tarefa tarefas[100], int *contador_tarefas){
     else{
         printf("Tarefa nao encontrada!\n");
         system("pause");
+    }
+}
+
+void concluir_tarefa(tipo_tarefa tarefas[100], int *contador_tarefas){
+    int i, verificacao = 0, indice;
+    printf("Informe o indice da tarefa que deseja concluir: ");
+    scanf("%i", &indice);
+    printf("\n");
+    for (i=0; i<=*contador_tarefas; i++){
+        if (i == indice)
+            verificacao = 1;
+    }
+    if (verificacao == 1){
+        if (tarefas[indice].situacao == 1){
+            printf("Situacao atual: Pendente\n");
+            printf("Situacao alterada para: Concluido.\n");
+            tarefas[indice].situacao = 2;
+            system ("pause");
+        }
+        else{
+            printf("A tarefa ja esta marcada como concluida.\n");
+        }
+    }
+    else{
+        printf("Tarefa nao encontrada!\n");
+        system ("pause");
     }
 }
