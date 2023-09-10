@@ -139,22 +139,26 @@ void visualizar_tarefas(tipo_tarefa tarefas[100], int *contador_tarefas){
 }
 
 void incluir_tarefa(tipo_tarefa tarefas[100], int *contador_tarefas){
-    char resp = 's';
+    char resp = 'n', descricao[50];
     do{
         system("cls");
         cabecalho();
         printf("            VAMOS INCLUIR UMA NOVA TAREFA        \n\n");
+        printf("Contador %i\n", *contador_tarefas);
         printf("Informe a descricao: ");
         fflush (stdin);
-        fgets(tarefas[*contador_tarefas+1].descricao, 50, stdin);
+        fgets(descricao, 50, stdin);
         fflush (stdin);
-        tarefas[*contador_tarefas+1].situacao = 1;
-        *contador_tarefas = *contador_tarefas + 1;
         printf("\n");
         printf("Confirma a inclusao da tarefa? [s/n] ");
         scanf("%c", &resp);
         resp = tolower(resp);
     } while (resp != 's');
+    if (resp == 's'){
+        *contador_tarefas = *contador_tarefas + 1;
+        strcpy(tarefas[*contador_tarefas+1].descricao, descricao);
+        tarefas[*contador_tarefas+1].situacao = 1;
+    }
 }
 
 void editar_tarefa(tipo_tarefa tarefas[100], int *contador_tarefas){
