@@ -117,7 +117,9 @@ int seleciona_opcao(int opcao){
 void visualizar_tarefas(tipo_tarefa tarefas[100], int *contador_tarefas){
     int i; 
     if (*contador_tarefas == 0){
-        printf("Nao ha tarefas armazenadas.\n");
+        printf("\n               ~ # ~          \n");
+        printf("   Nao ha tarefas armazenadas\n");
+        printf("               ~ # ~          \n\n");
         system("pause");
         return;
     }
@@ -138,7 +140,7 @@ void visualizar_tarefas(tipo_tarefa tarefas[100], int *contador_tarefas){
 void incluir_tarefa(tipo_tarefa tarefas[100], int *contador_tarefas){
     system("cls");
     cabecalho();
-    printf("VAMOS INCLUIR UMA NOVA TAREFA\n\n");
+    printf("            VAMOS INCLUIR UMA NOVA TAREFA        \n\n");
     printf("Informe a descricao: ");
     fflush (stdin);
     fgets(tarefas[*contador_tarefas+1].descricao, 50, stdin);
