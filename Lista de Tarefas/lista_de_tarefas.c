@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 struct tipo_tarefa{
     char descricao[50]; //Descrição geral da tarefa
@@ -138,15 +139,22 @@ void visualizar_tarefas(tipo_tarefa tarefas[100], int *contador_tarefas){
 }
 
 void incluir_tarefa(tipo_tarefa tarefas[100], int *contador_tarefas){
-    system("cls");
-    cabecalho();
-    printf("            VAMOS INCLUIR UMA NOVA TAREFA        \n\n");
-    printf("Informe a descricao: ");
-    fflush (stdin);
-    fgets(tarefas[*contador_tarefas+1].descricao, 50, stdin);
-    fflush (stdin);
-    tarefas[*contador_tarefas+1].situacao = 1;
-    *contador_tarefas = *contador_tarefas + 1;
+    char resp = 's';
+    do{
+        system("cls");
+        cabecalho();
+        printf("            VAMOS INCLUIR UMA NOVA TAREFA        \n\n");
+        printf("Informe a descricao: ");
+        fflush (stdin);
+        fgets(tarefas[*contador_tarefas+1].descricao, 50, stdin);
+        fflush (stdin);
+        tarefas[*contador_tarefas+1].situacao = 1;
+        *contador_tarefas = *contador_tarefas + 1;
+        printf("\n");
+        printf("Confirma a inclusao da tarefa? [s/n] ");
+        scanf("%c", &resp);
+        resp = tolower(resp);
+    } while (resp != 's');
 }
 
 void editar_tarefa(tipo_tarefa tarefas[100], int *contador_tarefas){
