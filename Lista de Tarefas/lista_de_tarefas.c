@@ -3,6 +3,11 @@
  * Descrição: Aplicação de lista de tarefas, onde o usuário consegue inserir, excluir, editar, visualização e concluir tarefas.
  * Autor: Igor França
  * Data de criação: 08 de setembro de 2023. 
+ * 
+ * Itens:
+ * 01. Travar para não inserir letras ao invés de índices. 
+ * 02. Criar a função de excluir tarefa. 
+ * 03. Melhorar layout.
  */
 
 #include <stdio.h>
@@ -24,6 +29,7 @@ void visualizar_tarefas (tipo_tarefa tarefas[100], int*);
 void incluir_tarefa(tipo_tarefa tarefas[100], int*);
 void editar_tarefa(tipo_tarefa tarefas[100], int*);
 void concluir_tarefa(tipo_tarefa tarefas[100], int*);
+void excluir_tarefa(tipo_tarefa tarefas[100], int*);
 int seleciona_opcao(int);
 
 int main (){
@@ -57,6 +63,7 @@ int main (){
                             concluir_tarefa(tarefas, &contador_tarefas);
                             break;
                         case 4: //Excluir tarefa
+                            excluir_tarefa(tarefas, &contador_tarefas);
                             break;
                         case 9: //Voltar para o menu inicial
                             break;
@@ -236,4 +243,7 @@ void concluir_tarefa(tipo_tarefa tarefas[100], int *contador_tarefas){
             break;
         }
     } while (resp != 's');
+}
+
+void excluir_tarefa(tipo_tarefa tarefas[100], int *contador_tarefas){
 }
