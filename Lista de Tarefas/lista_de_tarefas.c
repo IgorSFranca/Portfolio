@@ -143,7 +143,6 @@ void incluir_tarefa(tipo_tarefa tarefas[100], int *contador_tarefas){
         system("cls");
         cabecalho();
         printf("            VAMOS INCLUIR UMA NOVA TAREFA        \n\n");
-        printf("Contador %i\n", *contador_tarefas);
         printf("Informe a descricao: ");
         fflush (stdin);
         fgets(descricao, 50, stdin);
@@ -162,7 +161,7 @@ void incluir_tarefa(tipo_tarefa tarefas[100], int *contador_tarefas){
 
 void editar_tarefa(tipo_tarefa tarefas[100], int *contador_tarefas){
     int i, verificacao = 0, indice;
-    char resp = 's';
+    char resp = 's', descricao[50];
     do{
         printf("Informe o indice da tarefa que deseja alterar: ");
         scanf("%i", &indice);
@@ -175,7 +174,7 @@ void editar_tarefa(tipo_tarefa tarefas[100], int *contador_tarefas){
             printf("Descricao atual: %s", tarefas[indice].descricao);
             printf("Informe a nova descricao: ");
             fflush (stdin);
-            fgets(tarefas[indice].descricao, 50, stdin);
+            fgets(descricao, 50, stdin);
             fflush (stdin);
         }
         else{
@@ -186,6 +185,9 @@ void editar_tarefa(tipo_tarefa tarefas[100], int *contador_tarefas){
         printf("Confirma a edicao da tarefa? [s/n] ");
         scanf("%c", &resp);
         resp = tolower(resp);
+        if (resp == 's'){
+            strcpy(tarefas[indice].descricao, descricao);
+        }
     } while (resp != 's');
 }
 
