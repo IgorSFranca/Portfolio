@@ -1,4 +1,4 @@
-# Documentação do Programa Jogo da Velha
+# Jogo da Velha
 
 ## Introdução
 
