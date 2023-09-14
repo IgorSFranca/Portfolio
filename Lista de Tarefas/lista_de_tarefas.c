@@ -149,7 +149,7 @@ void incluir_tarefa(tipo_tarefa tarefas[100], int *contador_tarefas){
         fflush (stdin);
         printf("\n");
         printf("Confirma a inclusao da tarefa? [s/n] ");
-        scanf("%c", &resp);
+        scanf(" %c", &resp);
         resp = tolower(resp);
     } while (resp != 's');
     if (resp == 's'){
@@ -183,7 +183,7 @@ void editar_tarefa(tipo_tarefa tarefas[100], int *contador_tarefas){
         }
         printf("\n");
         printf("Confirma a edicao da tarefa? [s/n] ");
-        scanf("%c", &resp);
+        scanf(" %c", &resp);
         resp = tolower(resp);
         if (resp == 's'){
             strcpy(tarefas[indice].descricao, descricao);
@@ -192,34 +192,48 @@ void editar_tarefa(tipo_tarefa tarefas[100], int *contador_tarefas){
 }
 
 void concluir_tarefa(tipo_tarefa tarefas[100], int *contador_tarefas){
-    int i, verificacao = 0, indice;
-    char resp = 's';
+    int i, verificacao = 0, indice, situacao;
+    char resp;
     do{
-        printf("Informe o indice da tarefa que deseja concluir: ");
+        system ("cls");
+        cabecalho();
+        visualizar_tarefas(tarefas, contador_tarefas);
+        printf("\n----------------------------------------------\n");
+        printf("\nInforme o indice da tarefa que deseja concluir\n");
+        printf("ou informe 0 [zero] para cancelar: ");
         scanf("%i", &indice);
         printf("\n");
-        for (i=0; i<=*contador_tarefas; i++){
-            if (i == indice)
-                verificacao = 1;
-        }
-        if (verificacao == 1){
-            if (tarefas[indice].situacao == 1){
-                printf("Situacao atual: Pendente\n");
-                printf("Situacao alterada para: Concluido.\n");
-                tarefas[indice].situacao = 2;
-                system ("pause");
+        if (indice != 0){
+            for (i=0; i<=*contador_tarefas; i++){
+                if (i == indice)
+                    verificacao = 1;
+            }
+            if (verificacao == 1){
+                if (tarefas[indice].situacao == 1){
+                    printf("                 ~#~              \n");
+                    printf("Situacao atual: Pendente          \n");
+                    printf("Situacao alterada para: Concluido.\n");
+                    printf("                 ~#~              \n");
+                    situacao = 2;
+                    printf("\n");
+                    printf("Confirma a conclusao da tarefa? [s/n] ");
+                    scanf(" %c", &resp);
+                    resp = tolower(resp);
+                    if (resp == 's')
+                        tarefas[indice].situacao = situacao;
+                }
+                else{
+                    printf("A tarefa ja esta marcada como concluida.\n");
+                    system ("pause");
+                }
             }
             else{
-                printf("A tarefa ja esta marcada como concluida.\n");
+                printf("Tarefa nao encontrada!\n");
+                system ("pause");
             }
         }
-        else{
-            printf("Tarefa nao encontrada!\n");
-            system ("pause");
+        else {
+            break;
         }
-        printf("\n");
-        printf("Confirma a conclusao da tarefa? [s/n] ");
-        scanf("%c", &resp);
-        resp = tolower(resp);
     } while (resp != 's');
 }
